@@ -5,12 +5,16 @@ import {
   FormField,
   Card,
   Pagination,
+  Button,
 } from "@design-system";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 type StatusBadge = "success" | "warning" | "sage" | "binding";
 
 export default function HomePage() {
+  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedStatus, setSelectedStatus] = useState<StatusBadge | null>(
     null,
@@ -45,9 +49,9 @@ export default function HomePage() {
               id="genre"
               options={[
                 { value: "roman", label: "Roman" },
-                { value: "essai", label: "Essai" },
+                { value: "science-fiction", label: "Science-fiction" },
                 { value: "bd", label: "Bande dessinée" },
-                { value: "poesie", label: "Poésie" },
+                { value: "horreur", label: "Horreur" },
               ]}
               placeholder="Sélectionner un genre…"
             />
@@ -159,6 +163,14 @@ export default function HomePage() {
           />
         </div>
       </section>
+
+      <section className="ds-section" style={{ alignItems: "center", textAlign: "center" }}>
+        <p className="ds-subtitle">Une question ? Notre équipe est à votre disposition.</p>
+        <Button variant="forest" onClick={() => navigate("/contact")}>
+          Contactez-nous
+        </Button>
+      </section>
+
     </main>
   );
 }
