@@ -92,7 +92,7 @@ export default function ContactPage() {
           Pour toute question ou demande d'assistance, remplissez le formulaire ci-dessous.
         </p>
 
-        <form onSubmit={handleSubmit} className="ds-form" style={{ maxWidth: "600px" }}>
+        <form onSubmit={handleSubmit} style={{ maxWidth: "600px", display: "flex", flexDirection: "column", gap: "1.25rem" }}>
           <FormField
             label="Civilité"
             required
