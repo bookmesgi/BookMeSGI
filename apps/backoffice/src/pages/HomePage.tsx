@@ -120,11 +120,13 @@ export default function HomePage() {
             <Badge variant="binding">Coup de cœur</Badge>
           </Card>
         </div>
-        <Pagination
-          currentPage={currentPage}
-          totalPages={8}
-          onPageChange={setCurrentPage}
-        />
+        <div className="ds-row ds-row--center">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={8}
+            onPageChange={setCurrentPage}
+          />
+        </div>
       </section>
     </main>
   );

@@ -56,6 +56,10 @@
   align-items: flex-start;
 }
 
+.ds-row--center {
+  justify-content: center;
+}
+
 /* Grille de champs (2 colonnes) */
 .ds-fields-grid {
   display: grid;
