@@ -1,13 +1,17 @@
-import { useState, FormEvent } from "react";
-import { FormField, Input, Select, Button } from "../../../../design-system";
+import { useState, type FormEvent } from "react";
+import { FormField, Input, Select, Button, Radio, Checkbox, useToast } from "../../../../design-system";
 
 export default function ContactPage() {
+  const { toast } = useToast();
+  
   const [formData, setFormData] = useState({
+    civility: "",
     firstName: "",
     lastName: "",
     email: "",
     subject: "",
     message: "",
+    acceptConditions: false,
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -16,6 +20,9 @@ export default function ContactPage() {
     e.preventDefault();
     const newErrors: Record<string, string> = {};
 
+    if (!formData.civility) {
+      newErrors.civility = "Veuillez sélectionner votre civilité";
+    }
     if (!formData.firstName.trim()) {
       newErrors.firstName = "Le prénom est requis";
     }
@@ -33,25 +40,36 @@ export default function ContactPage() {
     if (!formData.message.trim()) {
       newErrors.message = "Le message est requis";
     }
+    if (!formData.acceptConditions) {
+      newErrors.acceptConditions = "Vous devez accepter les conditions";
+    }
 
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
       console.log("Formulaire envoyé:", formData);
-      alert("Votre message a été envoyé avec succès !");
+      
+      // Afficher le toast de succès
+      toast("Votre message a été envoyé avec succès !", "success");
+      
+      // Réinitialiser le formulaire
       setFormData({
+        civility: "",
         firstName: "",
         lastName: "",
         email: "",
         subject: "",
         message: "",
+        acceptConditions: false,
       });
+    } else {
+      toast("Veuillez corriger les erreurs dans le formulaire.", "error");
     }
   };
 
   const handleChange = (
     field: keyof typeof formData,
-    value: string
+    value: string | boolean
   ) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) {
@@ -75,6 +93,31 @@ export default function ContactPage() {
         </p>
 
         <form onSubmit={handleSubmit} style={{ maxWidth: "600px", marginTop: "2rem" }}>
+          <FormField
+            label="Civilité"
+            required
+            error={errors.civility}
+          >
+            <div style={{ display: "flex", gap: "1.5rem", marginTop: "0.5rem" }}>
+              <Radio
+                id="civility-mr"
+                name="civility"
+                value="mr"
+                label="Monsieur"
+                checked={formData.civility === "mr"}
+                onChange={(e) => handleChange("civility", e.target.value)}
+              />
+              <Radio
+                id="civility-mme"
+                name="civility"
+                value="mme"
+                label="Madame"
+                checked={formData.civility === "mme"}
+                onChange={(e) => handleChange("civility", e.target.value)}
+              />
+            </div>
+          </FormField>
+
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
             <FormField
               label="Prénom"
@@ -156,6 +199,17 @@ export default function ContactPage() {
               placeholder="Votre message..."
               rows={6}
               style={{ resize: "vertical", fontFamily: "inherit" }}
+            />
+          </FormField>
+
+          <FormField
+            error={errors.acceptConditions}
+          >
+            <Checkbox
+              label="J'accepte les conditions générales d'utilisation et la politique de confidentialité"
+              checked={formData.acceptConditions}
+              onChange={(e) => handleChange("acceptConditions", e.target.checked)}
+              variant={errors.acceptConditions ? "error" : "default"}
             />
           </FormField>
 
