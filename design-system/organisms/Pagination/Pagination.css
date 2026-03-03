@@ -54,3 +54,15 @@
 .pagination-btn--nav:hover:not(:disabled) {
   color: var(--color-text);
 }
+
+.pagination-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  user-select: none;
+}

@@ -2,7 +2,7 @@
   background-color: var(--color-surface);
   border: 2px solid var(--color-border);
   border-radius: var(--rounded-lg);
-  padding: 1.25rem 1.5rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;

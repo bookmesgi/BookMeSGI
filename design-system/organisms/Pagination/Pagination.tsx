@@ -13,7 +13,19 @@ export function Pagination({
   onPageChange,
   className = "",
 }: PaginationProps) {
-  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+  function getPages(current: number, total: number): (number | "…")[] {
+    if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+    const left = current - 1;
+    const right = current + 1;
+    const result: (number | "…")[] = [1];
+    if (left > 2) result.push("…");
+    for (let p = Math.max(2, left); p <= Math.min(total - 1, right); p++) result.push(p);
+    if (right < total - 1) result.push("…");
+    result.push(total);
+    return result;
+  }
+
+  const pages = getPages(currentPage, totalPages);
 
   return (
     <nav className={`pagination ${className}`.trim()} aria-label="Pagination">
@@ -27,17 +39,23 @@ export function Pagination({
         ‹
       </button>
 
-      {pages.map((page) => (
-        <button
-          key={page}
-          type="button"
-          className={`pagination-btn${page === currentPage ? " pagination-btn--active" : ""}`}
-          onClick={() => onPageChange(page)}
-          aria-current={page === currentPage ? "page" : undefined}
-        >
-          {page}
-        </button>
-      ))}
+      {pages.map((page, i) =>
+        page === "…" ? (
+          <span key={`ell-${i}`} className="pagination-ellipsis" aria-hidden="true">
+            …
+          </span>
+        ) : (
+          <button
+            key={page}
+            type="button"
+            className={`pagination-btn${page === currentPage ? " pagination-btn--active" : ""}`}
+            onClick={() => onPageChange(page)}
+            aria-current={page === currentPage ? "page" : undefined}
+          >
+            {page}
+          </button>
+        )
+      )}
 
       <button
         type="button"

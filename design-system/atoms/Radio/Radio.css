@@ -12,8 +12,8 @@
 }
 
 .radio-dot {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   flex-shrink: 0;
   border: 2px solid var(--color-field-border);
   border-radius: 50%;

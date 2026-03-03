@@ -16,7 +16,7 @@
   height: 22px;
   flex-shrink: 0;
   border: 2px solid var(--color-field-border);
-  border-radius: 5px;
+  border-radius: var(--rounded);
   background-color: var(--color-checkbox-bg);
   display: flex;
   align-items: center;

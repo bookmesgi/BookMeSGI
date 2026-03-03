@@ -21,28 +21,31 @@ export default function HomePage() {
         </p>
       </div>
 
-      <h2 className="ds-section-title">Recherche</h2>
-      <div className="ds-fields-grid">
-        <FormField label="Titre du livre" htmlFor="titre">
-          <Input id="titre" placeholder="Ex. : Le Comte de Monte-Cristo" />
-        </FormField>
+      <section className="ds-section" id="recherche">
+        <h2 className="ds-section-title">Recherche</h2>
+        <div className="ds-fields-grid">
+          <FormField label="Titre du livre" htmlFor="titre">
+            <Input id="titre" placeholder="Ex. : Le Comte de Monte-Cristo" />
+          </FormField>
 
-        <FormField label="Auteur" htmlFor="auteur">
-          <Input id="auteur" placeholder="Prénom Nom" />
-        </FormField>
-        <FormField label="Genre" htmlFor="genre">
-          <Select
-            id="genre"
-            options={[
-              { value: "roman", label: "Roman" },
-              { value: "essai", label: "Essai" },
-              { value: "bd", label: "Bande dessinée" },
-              { value: "poesie", label: "Poésie" },
-            ]}
-            placeholder="Sélectionner un genre…"
-          />
-        </FormField>
-      </div>
+          <FormField label="Auteur" htmlFor="auteur">
+            <Input id="auteur" placeholder="Prénom Nom" />
+          </FormField>
+
+          <FormField label="Genre" htmlFor="genre">
+            <Select
+              id="genre"
+              options={[
+                { value: "roman", label: "Roman" },
+                { value: "essai", label: "Essai" },
+                { value: "bd", label: "Bande dessinée" },
+                { value: "poesie", label: "Poésie" },
+              ]}
+              placeholder="Sélectionner un genre…"
+            />
+          </FormField>
+        </div>
+      </section>
 
       <section className="ds-section" id="badges">
         <h2 className="ds-section-title">Statut</h2>

@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { FormField, Input, Select, Button, Radio, Checkbox, useToast } from "../../../../design-system";
+import { FormField, Input, Select, Button, Radio, Checkbox, Textarea, useToast } from "@design-system";
 
 export default function ContactPage() {
   const { toast } = useToast();
@@ -92,13 +92,13 @@ export default function ContactPage() {
           Pour toute question ou demande d'assistance, remplissez le formulaire ci-dessous.
         </p>
 
-        <form onSubmit={handleSubmit} style={{ maxWidth: "600px", marginTop: "2rem" }}>
+        <form onSubmit={handleSubmit} className="ds-form" style={{ maxWidth: "600px" }}>
           <FormField
             label="Civilité"
             required
             error={errors.civility}
           >
-            <div style={{ display: "flex", gap: "1.5rem", marginTop: "0.5rem" }}>
+            <div className="ds-row">
               <Radio
                 id="civility-mr"
                 name="civility"
@@ -118,7 +118,7 @@ export default function ContactPage() {
             </div>
           </FormField>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+          <div className="ds-form-row">
             <FormField
               label="Prénom"
               required
@@ -191,14 +191,13 @@ export default function ContactPage() {
             error={errors.message}
             helper="Décrivez votre demande en détail"
           >
-            <textarea
+            <Textarea
               id="message"
               value={formData.message}
               onChange={(e) => handleChange("message", e.target.value)}
-              className={`input ${errors.message ? "input-error" : ""}`}
+              variant={errors.message ? "error" : "default"}
               placeholder="Votre message..."
               rows={6}
-              style={{ resize: "vertical", fontFamily: "inherit" }}
             />
           </FormField>
 
@@ -213,7 +212,7 @@ export default function ContactPage() {
             />
           </FormField>
 
-          <div style={{ marginTop: "1.5rem" }}>
+          <div className="ds-form-actions">
             <Button type="submit" variant="forest">
               Envoyer le message
             </Button>
