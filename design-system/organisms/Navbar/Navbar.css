@@ -1,0 +1,125 @@
+/* Navbar — organism — Design System */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2.5rem;
+  background: linear-gradient(180deg, #7a5a45 0%, #6b4f3f 40%, #5a3f31 100%);
+  border: 3px solid #5a3f31;
+  border-radius: var(--rounded-lg);
+  box-shadow:
+    var(--shadow-lg),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  width: 100%;
+  min-height: 70px;
+  box-sizing: border-box;
+}
+
+/* Texture bois */
+.navbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 3px,
+      rgba(0, 0, 0, 0.018) 3px,
+      rgba(0, 0, 0, 0.018) 6px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 8px,
+      rgba(0, 0, 0, 0.012) 8px,
+      rgba(0, 0, 0, 0.012) 16px
+    );
+  border-radius: calc(var(--rounded-lg) - 3px);
+  pointer-events: none;
+}
+
+/* === Marque === */
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.navbar-logo {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  color: var(--color-paper);
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: baseline;
+  text-decoration: none;
+}
+
+.navbar-logo-icon {
+  font-family: "Times New Roman", serif;
+  font-style: italic;
+  font-size: 2.25rem;
+  margin-right: -2px;
+}
+
+/* === Liens === */
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.navbar-link {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  color: var(--color-paper);
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.45);
+  transition: color 0.2s ease, transform 0.2s ease, text-shadow 0.2s ease;
+  text-transform: uppercase;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  display: inline-block;
+}
+
+.navbar-link:hover {
+  color: #fffef8;
+  transform: translateY(-1px);
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+}
+
+.navbar-link:focus-visible {
+  outline: 2px solid var(--color-paper);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* État actif (page courante) */
+.navbar-link-active {
+  color: #fffef8;
+  border-bottom-color: rgba(247, 227, 177, 0.7);
+}
+
+/* === Actions === */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 1;
+}

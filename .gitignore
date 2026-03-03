@@ -1,6 +1,61 @@
-designsystem/dist/index.d.mts
-designsystem/dist/index.d.ts
-designsystem/dist/index.js
-designsystem/dist/index.js.map
-designsystem/dist/index.mjs
-designsystem/dist/index.mjs.map
+# ==========================================
+# Node
+# ==========================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.log
+
+# ==========================================
+# Build outputs
+# ==========================================
+dist/
+dist-ssr/
+build/
+*.local
+
+# Anciens chemins désignation design-system
+designsystem/dist/
+
+# ==========================================
+# TypeScript
+# ==========================================
+*.tsbuildinfo
+
+# ==========================================
+# Éditeurs
+# ==========================================
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ==========================================
+# OS
+# ==========================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==========================================
+# Env / secrets
+# ==========================================
+.env
+.env.*
+!.env.example
+
+# ==========================================
+# Divers
+# ==========================================
+coverage/
+.nyc_output/
+*.map
+

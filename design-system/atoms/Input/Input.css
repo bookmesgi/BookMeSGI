@@ -1,0 +1,55 @@
+/* Input — Design System */
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-field-text);
+  background-color: var(--color-field-bg);
+  border: 2px solid var(--color-field-border);
+  border-radius: var(--rounded-md);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--color-field-border);
+  box-shadow: 0 0 0 3px var(--color-field-focus-shadow);
+}
+
+.input::placeholder {
+  color: var(--color-field-placeholder);
+}
+
+/* === Error === */
+.input-error {
+  border-color: var(--color-field-border-error);
+  background-color: var(--color-field-bg-error);
+}
+
+.input-error:focus {
+  border-color: var(--color-field-border-error);
+  box-shadow: 0 0 0 3px var(--color-field-shadow-error);
+}
+
+/* === Warning === */
+.input-warning {
+  border-color: var(--color-field-border-warning);
+  background-color: var(--color-field-bg-warning);
+}
+
+.input-warning:focus {
+  border-color: var(--color-field-border-warning);
+  box-shadow: 0 0 0 3px var(--color-field-shadow-warning);
+}
+
+/* === Disabled === */
+.input-disabled,
+.input:disabled {
+  border-color: var(--color-field-border-disabled);
+  background-color: var(--color-field-bg-disabled);
+  color: var(--color-field-text-disabled);
+  cursor: not-allowed;
+}

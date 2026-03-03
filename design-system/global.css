@@ -1,35 +1,200 @@
-:root {
+/* ==========================================
+   LIGHT MODE (défaut)
+========================================== */
+:root,
+[data-theme="light"] {
+  /* --- Palette --- */
   --color-paper: #f7e3b1;
   --color-binding: #6b4f3f;
   --color-sage: #677f67;
   --color-forest: #2f3b2f;
   --color-ink: #1e1e1e;
 
+  /* --- Sémantiques --- */
   --color-success: #4f6f55;
   --color-error: #8b3a2e;
   --color-warning: #b08a3c;
 
+  /* --- Alias --- */
   --color-primary: var(--color-binding);
   --color-secondary: var(--color-sage);
   --color-background: var(--color-paper);
+  --color-surface: #fffef8;
   --color-text: var(--color-ink);
-  --color-text-muted: var(--color-forest);
+  --color-text-muted: #6a5a4a;
+  --color-border: #c8b090;
 
+  /* --- Tons --- */
   --color-primary-dark: #5a3f31;
   --color-primary-light: #8a6a5a;
   --color-sage-dark: #556855;
   --color-sage-light: #86a086;
 
+  /* --- Champs formulaire --- */
+  --color-field-bg: #fffef8;
+  --color-field-text: var(--color-ink);
+  --color-field-border: var(--color-forest);
+  --color-field-placeholder: #9a8a6a;
+  --color-field-focus-shadow: rgba(47, 59, 47, 0.14);
+
+  --color-field-bg-error: #fdf0ee;
+  --color-field-border-error: var(--color-error);
+  --color-field-shadow-error: rgba(139, 58, 46, 0.14);
+
+  --color-field-bg-warning: #fdf8ee;
+  --color-field-border-warning: var(--color-warning);
+  --color-field-shadow-warning: rgba(176, 138, 60, 0.14);
+
+  --color-field-bg-disabled: #ebebeb;
+  --color-field-text-disabled: #888888;
+  --color-field-border-disabled: #b8b8b8;
+
+  /* --- Checkbox --- */
+  --color-checkbox-bg: #fffef8;
+  --color-checkbox-bg-error: #fdf0ee;
+  --color-checkbox-bg-warning: #fdf8ee;
+  --color-checkbox-bg-disabled: #ebebeb;
+
+  /* --- Typographie --- */
   --font-heading: "Libre Baskerville", Georgia, serif;
   --font-body: "Lato", "Helvetica Neue", Arial, sans-serif;
 
+  /* --- Espacements --- */
   --padding-sm: 0.5rem;
   --padding-md: 1rem;
   --padding-lg: 1.5rem;
 
+  /* --- Bordures --- */
   --border-thin: 1px;
   --border-medium: 2px;
   --border-large: 4px;
 
   --rounded: 5px;
+  --rounded-md: 8px;
+  --rounded-lg: 12px;
+
+  /* --- Ombres --- */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.10);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.14);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.20);
+}
+
+/* ==========================================
+   DARK MODE — attribut explicite
+========================================== */
+[data-theme="dark"] {
+  /* --- Palette inversée --- */
+  --color-paper: #1c1713;
+  --color-binding: #9a7a6a;
+  --color-sage: #7a9a7a;
+  --color-forest: #5a7560;
+  --color-ink: #ede0c4;
+
+  /* --- Sémantiques (plus vives pour le contraste) --- */
+  --color-success: #6a9a72;
+  --color-error: #c05040;
+  --color-warning: #c8a050;
+
+  /* --- Alias --- */
+  --color-primary: var(--color-binding);
+  --color-secondary: var(--color-sage);
+  --color-background: var(--color-paper);
+  --color-surface: #26201a;
+  --color-text: var(--color-ink);
+  --color-text-muted: #a09080;
+  --color-border: #4a3a2a;
+
+  /* --- Tons --- */
+  --color-primary-dark: #b09080;
+  --color-primary-light: #7a5a4a;
+  --color-sage-dark: #6a8a6a;
+  --color-sage-light: #9aba9a;
+
+  /* --- Champs formulaire --- */
+  --color-field-bg: #26201a;
+  --color-field-text: var(--color-ink);
+  --color-field-border: #5a7560;
+  --color-field-placeholder: #7a6a5a;
+  --color-field-focus-shadow: rgba(90, 117, 96, 0.28);
+
+  --color-field-bg-error: rgba(192, 80, 64, 0.10);
+  --color-field-border-error: #c05040;
+  --color-field-shadow-error: rgba(192, 80, 64, 0.22);
+
+  --color-field-bg-warning: rgba(200, 160, 80, 0.10);
+  --color-field-border-warning: #c8a050;
+  --color-field-shadow-warning: rgba(200, 160, 80, 0.22);
+
+  --color-field-bg-disabled: #24201c;
+  --color-field-text-disabled: #5a5040;
+  --color-field-border-disabled: #3a3028;
+
+  /* --- Checkbox --- */
+  --color-checkbox-bg: #26201a;
+  --color-checkbox-bg-error: rgba(192, 80, 64, 0.12);
+  --color-checkbox-bg-warning: rgba(200, 160, 80, 0.12);
+  --color-checkbox-bg-disabled: #24201c;
+
+  /* --- Ombres (plus prononcées) --- */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.30);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.42);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.58);
+}
+
+/* ==========================================
+   DARK MODE — préférence système
+   (si aucun data-theme n'est défini)
+========================================== */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-paper: #1c1713;
+    --color-binding: #9a7a6a;
+    --color-sage: #7a9a7a;
+    --color-forest: #5a7560;
+    --color-ink: #ede0c4;
+
+    --color-success: #6a9a72;
+    --color-error: #c05040;
+    --color-warning: #c8a050;
+
+    --color-primary: var(--color-binding);
+    --color-secondary: var(--color-sage);
+    --color-background: var(--color-paper);
+    --color-surface: #26201a;
+    --color-text: var(--color-ink);
+    --color-text-muted: #a09080;
+    --color-border: #4a3a2a;
+
+    --color-primary-dark: #b09080;
+    --color-primary-light: #7a5a4a;
+    --color-sage-dark: #6a8a6a;
+    --color-sage-light: #9aba9a;
+
+    --color-field-bg: #26201a;
+    --color-field-text: var(--color-ink);
+    --color-field-border: #5a7560;
+    --color-field-placeholder: #7a6a5a;
+    --color-field-focus-shadow: rgba(90, 117, 96, 0.28);
+
+    --color-field-bg-error: rgba(192, 80, 64, 0.10);
+    --color-field-border-error: #c05040;
+    --color-field-shadow-error: rgba(192, 80, 64, 0.22);
+
+    --color-field-bg-warning: rgba(200, 160, 80, 0.10);
+    --color-field-border-warning: #c8a050;
+    --color-field-shadow-warning: rgba(200, 160, 80, 0.22);
+
+    --color-field-bg-disabled: #24201c;
+    --color-field-text-disabled: #5a5040;
+    --color-field-border-disabled: #3a3028;
+
+    --color-checkbox-bg: #26201a;
+    --color-checkbox-bg-error: rgba(192, 80, 64, 0.12);
+    --color-checkbox-bg-warning: rgba(200, 160, 80, 0.12);
+    --color-checkbox-bg-disabled: #24201c;
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.30);
+    --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.42);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.58);
+  }
 }

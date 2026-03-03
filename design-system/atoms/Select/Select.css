@@ -1,0 +1,93 @@
+/* Select — Design System */
+
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Flèche custom */
+.select-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--color-field-border);
+  pointer-events: none;
+  transition: border-top-color 0.2s ease;
+}
+
+.select {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-field-text);
+  background-color: var(--color-field-bg);
+  border: 2px solid var(--color-field-border);
+  border-radius: var(--rounded-md);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.select:focus {
+  border-color: var(--color-field-border);
+  box-shadow: 0 0 0 3px var(--color-field-focus-shadow);
+}
+
+/* Les options héritent du thème navigateur — on force au moins la couleur */
+.select option {
+  background-color: var(--color-field-bg);
+  color: var(--color-field-text);
+}
+
+/* === Error === */
+.select-error {
+  border-color: var(--color-field-border-error);
+  background-color: var(--color-field-bg-error);
+}
+
+.select-wrapper.select-wrapper-error::after {
+  border-top-color: var(--color-field-border-error);
+}
+
+.select-error:focus {
+  border-color: var(--color-field-border-error);
+  box-shadow: 0 0 0 3px var(--color-field-shadow-error);
+}
+
+/* === Warning === */
+.select-warning {
+  border-color: var(--color-field-border-warning);
+  background-color: var(--color-field-bg-warning);
+}
+
+.select-wrapper.select-wrapper-warning::after {
+  border-top-color: var(--color-field-border-warning);
+}
+
+.select-warning:focus {
+  border-color: var(--color-field-border-warning);
+  box-shadow: 0 0 0 3px var(--color-field-shadow-warning);
+}
+
+/* === Disabled === */
+.select-disabled,
+.select:disabled {
+  border-color: var(--color-field-border-disabled);
+  background-color: var(--color-field-bg-disabled);
+  color: var(--color-field-text-disabled);
+  cursor: not-allowed;
+}
+
+.select-wrapper.select-wrapper-disabled::after {
+  border-top-color: var(--color-field-border-disabled);
+}

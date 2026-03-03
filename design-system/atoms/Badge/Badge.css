@@ -1,0 +1,73 @@
+/* Badge — Design System */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.65rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  border-radius: 100px;
+  border: 1.5px solid transparent;
+  white-space: nowrap;
+  line-height: 1.6;
+}
+
+/* === Default === */
+.badge-default {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+/* === Forest (disponible / actif) === */
+.badge-forest {
+  background-color: var(--color-forest);
+  color: var(--color-paper);
+  border-color: var(--color-forest);
+}
+
+/* === Sage (info secondaire) === */
+.badge-sage {
+  background-color: var(--color-sage);
+  color: #fff;
+  border-color: var(--color-sage);
+}
+
+/* === Binding (mise en avant) === */
+.badge-binding {
+  background-color: var(--color-binding);
+  color: #fff;
+  border-color: var(--color-binding);
+}
+
+/* === Success === */
+.badge-success {
+  background-color: rgba(79, 111, 85, 0.12);
+  color: var(--color-success);
+  border-color: var(--color-success);
+}
+
+/* === Error === */
+.badge-error {
+  background-color: rgba(139, 58, 46, 0.10);
+  color: var(--color-error);
+  border-color: var(--color-error);
+}
+
+/* === Warning === */
+.badge-warning {
+  background-color: rgba(176, 138, 60, 0.10);
+  color: var(--color-warning);
+  border-color: var(--color-warning);
+}
+
+/* === Info === */
+.badge-info {
+  background-color: rgba(103, 127, 103, 0.12);
+  color: var(--color-sage);
+  border-color: var(--color-sage-dark);
+}
