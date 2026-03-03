@@ -2,18 +2,8 @@
 
 # Compiler Module : 
 ```shell 
-cd designsystem
-nr build -w @bookmesgi/designsystem  
+cd apps/backoffice
+npm i
+npm run dev -d
 ```
 
-# Lancer le backoffice : 
-```shell
-cd app/backoffice
-npm run dev
-```
-
-# Installer le module dans le backoffice : 
-```shell
-cd app/backoffice
-npm install @bookmesgi/designsystem
-```
