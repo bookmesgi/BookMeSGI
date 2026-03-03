@@ -4,6 +4,7 @@ import { Navbar, Button } from "@design-system";
 import "./App.css";
 import HomePage from "./pages/HomePage";
 import ComponentsPage from "./pages/ComponentsPage";
+import ContactPage from "./pages/ContactPage";
 
 export default function App() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
@@ -21,7 +22,8 @@ export default function App() {
         brandName="LIBRAIRIE"
         items={[
           { label: "Accueil", href: "/" },
-          { label: "Composants", href: "/components" },
+          { label: "Contact", href: "/contact"},
+          { label: "Composants", href: "/components" }
         ]}
         actions={
           <Button
@@ -36,6 +38,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/components" element={<ComponentsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </BrowserRouter>
   );
