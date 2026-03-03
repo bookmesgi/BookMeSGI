@@ -1,5 +1,3 @@
-/* Badge — Design System */
-
 .badge {
   display: inline-flex;
   align-items: center;
@@ -14,58 +12,75 @@
   border: 1.5px solid transparent;
   white-space: nowrap;
   line-height: 1.6;
+  text-decoration: none;
+  background: none;
+  cursor: default;
 }
 
-/* === Default === */
+.badge--interactive {
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.badge--interactive:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+.badge--interactive:active {
+  filter: brightness(0.92);
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.badge--interactive:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
 .badge-default {
   background-color: var(--color-surface);
   color: var(--color-text);
   border-color: var(--color-border);
 }
 
-/* === Forest (disponible / actif) === */
 .badge-forest {
   background-color: var(--color-forest);
   color: var(--color-paper);
   border-color: var(--color-forest);
 }
 
-/* === Sage (info secondaire) === */
 .badge-sage {
   background-color: var(--color-sage);
   color: #fff;
   border-color: var(--color-sage);
 }
 
-/* === Binding (mise en avant) === */
 .badge-binding {
   background-color: var(--color-binding);
   color: #fff;
   border-color: var(--color-binding);
 }
 
-/* === Success === */
 .badge-success {
   background-color: rgba(79, 111, 85, 0.12);
   color: var(--color-success);
   border-color: var(--color-success);
 }
 
-/* === Error === */
 .badge-error {
   background-color: rgba(139, 58, 46, 0.10);
   color: var(--color-error);
   border-color: var(--color-error);
 }
 
-/* === Warning === */
 .badge-warning {
   background-color: rgba(176, 138, 60, 0.10);
   color: var(--color-warning);
   border-color: var(--color-warning);
 }
 
-/* === Info === */
 .badge-info {
   background-color: rgba(103, 127, 103, 0.12);
   color: var(--color-sage);

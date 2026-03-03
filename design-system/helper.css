@@ -82,7 +82,6 @@
   padding-bottom: var(--padding-lg);
 }
 
-/* Bordures */
 .border-thin {
   border-width: var(--border-thin);
 }

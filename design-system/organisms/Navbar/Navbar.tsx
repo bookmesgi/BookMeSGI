@@ -11,7 +11,6 @@ interface NavbarProps {
   items?: NavbarItem[];
   brandName?: string;
   brandIcon?: ReactNode;
-  /** Slot pour ajouter des boutons d'action (connexion, panier…) */
   actions?: ReactNode;
   className?: string;
 }
@@ -25,7 +24,6 @@ export default function Navbar({
 }: NavbarProps) {
   return (
     <nav className={`navbar ${className}`.trim()} aria-label="Navigation principale">
-      {/* Marque / Logo */}
       <div className="navbar-brand">
         <span className="navbar-logo">
           {brandIcon ?? (
@@ -37,7 +35,6 @@ export default function Navbar({
         </span>
       </div>
 
-      {/* Liens de navigation */}
       {items.length > 0 && (
         <ul className="navbar-nav" role="list">
           {items.map((item, i) => (
@@ -54,7 +51,6 @@ export default function Navbar({
         </ul>
       )}
 
-      {/* Actions (boutons, avatar…) */}
       {actions && <div className="navbar-actions">{actions}</div>}
     </nav>
   );

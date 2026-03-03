@@ -1,10 +1,6 @@
 import "./Label.css";
 import type { LabelHTMLAttributes, ReactNode } from "react";
 
-/* ==========================================
-   LABEL
-========================================== */
-
 type LabelVariant = "default" | "required" | "optional" | "error" | "warning";
 
 interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
@@ -26,10 +22,6 @@ export function Label({
     </label>
   );
 }
-
-/* ==========================================
-   HELPER TEXT
-========================================== */
 
 type HelperVariant = "default" | "error" | "warning";
 

@@ -1,10 +1,5 @@
 import "./Badge.css";
-import type { ReactNode } from "react";
-
-/**
- * Badge — indicateur visuel de statut (non cliquable).
- * Pour les boutons avec icône, utiliser le composant Button.
- */
+import type { ReactNode, MouseEventHandler } from "react";
 
 type BadgeVariant =
   | "default"
@@ -20,16 +15,36 @@ interface BadgeProps {
   variant?: BadgeVariant;
   children: ReactNode;
   className?: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  href?: string;
 }
 
 export function Badge({
   variant = "default",
   children,
   className = "",
+  onClick,
+  href,
 }: BadgeProps) {
-  return (
-    <span className={`badge badge-${variant} ${className}`.trim()}>
-      {children}
-    </span>
-  );
+  const base = `badge badge-${variant}`;
+  const interactive = onClick || href ? " badge--interactive" : "";
+  const cls = `${base}${interactive} ${className}`.trim();
+
+  if (href) {
+    return (
+      <a href={href} className={cls}>
+        {children}
+      </a>
+    );
+  }
+
+  if (onClick) {
+    return (
+      <button type="button" className={cls} onClick={onClick}>
+        {children}
+      </button>
+    );
+  }
+
+  return <span className={cls}>{children}</span>;
 }

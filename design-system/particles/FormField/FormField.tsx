@@ -2,11 +2,6 @@ import "./FormField.css";
 import { Label, HelperText } from "../../atoms/Label/Label";
 import type { ReactNode } from "react";
 
-/**
- * FormField — particle (molecule)
- * Combine Label + champ + HelperText avec gestion des états error/warning.
- */
-
 interface FormFieldProps {
   label?: string;
   helper?: string;

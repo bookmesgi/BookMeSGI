@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Button,
   BadgeIcon,
@@ -7,6 +8,17 @@ import {
   Select,
   Label,
   FormField,
+  Textarea,
+  Switch,
+  Radio,
+  Divider,
+  Avatar,
+  Card,
+  Stat,
+  Table,
+  Modal,
+  Pagination,
+  useToast,
 } from "@design-system";
 
 /* ==========================================
@@ -24,7 +36,20 @@ function Swatch({ bg, name }: { bg: string; name: string }) {
 /* ==========================================
    Page composants — Design System showcase
 ========================================== */
+const BOOKS = [
+  { id: 1, titre: "Le Petit Prince",     auteur: "Saint-Exupéry",      genre: "Roman",  stock: 12 },
+  { id: 2, titre: "L'Étranger",           auteur: "Albert Camus",        genre: "Roman",  stock: 3  },
+  { id: 3, titre: "Les Misérables",       auteur: "Victor Hugo",         genre: "Roman",  stock: 0  },
+  { id: 4, titre: "Astérix le Gaulois",   auteur: "Goscinny & Uderzo",   genre: "BD",     stock: 7  },
+  { id: 5, titre: "Pensées",              auteur: "Blaise Pascal",       genre: "Essai",  stock: 2  },
+];
+
 export default function ComponentsPage() {
+  const [modalOpen, setModalOpen]   = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [radioValue, setRadioValue]   = useState("roman");
+  const { toast } = useToast();
+
   return (
     <main className="showcase">
 
@@ -248,6 +273,194 @@ export default function ComponentsPage() {
             <Button variant="paper-outline">Annuler</Button>
             <Button variant="forest">Enregistrer la commande</Button>
           </div>
+        </div>
+      </section>
+
+      {/* -------- TEXTAREA -------- */}
+      <section className="ds-section" id="textarea">
+        <h2 className="ds-section-title">Textarea</h2>
+        <div className="ds-fields-grid">
+          <FormField label="Description" htmlFor="desc">
+            <Textarea id="desc" placeholder="Résumé du livre…" />
+          </FormField>
+
+          <FormField label="Notes internes" htmlFor="notes" error="Champ obligatoire.">
+            <Textarea id="notes" variant="error" placeholder="Usage interne uniquement" />
+          </FormField>
+
+          <FormField label="Remarques" htmlFor="rem" warning="Limite de 500 caractères.">
+            <Textarea id="rem" variant="warning" rows={3} />
+          </FormField>
+
+          <FormField label="Archivé" htmlFor="arch">
+            <Textarea id="arch" disabled placeholder="Non modifiable" />
+          </FormField>
+        </div>
+      </section>
+
+      {/* -------- SWITCH / RADIO / DIVIDER -------- */}
+      <section className="ds-section" id="controles">
+        <h2 className="ds-section-title">Switch, Radio &amp; Divider</h2>
+
+        <Divider label="Switch" />
+        <div className="ds-row ds-row--col">
+          <Switch label="Disponible en ligne" defaultChecked id="sw-1" />
+          <Switch label="Notifications activées" id="sw-2" />
+          <Switch label="Option désactivée" disabled id="sw-3" />
+        </div>
+
+        <Divider label="Radio" />
+        <div className="ds-row ds-row--col">
+          {(["roman", "essai", "bd", "poesie"] as const).map((v) => (
+            <Radio
+              key={v}
+              id={`radio-${v}`}
+              name="genre-radio"
+              value={v}
+              label={({ roman: "Roman", essai: "Essai", bd: "Bande dessinée", poesie: "Poésie" } as Record<string, string>)[v]}
+              checked={radioValue === v}
+              onChange={() => setRadioValue(v)}
+            />
+          ))}
+        </div>
+
+        <Divider />
+        <Divider label="Séparateur labelé" />
+      </section>
+
+      {/* -------- AVATAR -------- */}
+      <section className="ds-section" id="avatars">
+        <h2 className="ds-section-title">Avatar</h2>
+        <div className="ds-row">
+          <Avatar name="Marie Dupont"      size="sm" />
+          <Avatar name="Marie Dupont"      size="md" />
+          <Avatar name="Marie Dupont"      size="lg" />
+          <Avatar name="Jean-Pierre Martin" size="md" />
+          <Avatar name="Alice"             size="md" />
+          <Avatar                          size="md" />
+        </div>
+      </section>
+
+      {/* -------- STAT -------- */}
+      <section className="ds-section" id="stats">
+        <h2 className="ds-section-title">Statistiques</h2>
+        <div className="ds-fields-grid">
+          <Stat label="Livres en catalogue"    value="1 284" trend="+ 42 ce mois"  trendDirection="up"      />
+          <Stat label="Commandes en attente"   value="17"    trend="− 3 vs hier"   trendDirection="down"    />
+          <Stat label="Taux de retour"         value="4,2 %" trend="stable"        trendDirection="neutral" />
+          <Stat label="Chiffre d'affaires"     value="8 640 €" trend="+ 12 % ce mois" trendDirection="up"  />
+        </div>
+      </section>
+
+      {/* -------- CARD -------- */}
+      <section className="ds-section" id="cards">
+        <h2 className="ds-section-title">Cards</h2>
+        <div className="ds-fields-grid">
+          <Card title="Fiche livre">
+            <p style={{ margin: 0 }}>
+              Le Comte de Monte-Cristo — Alexandre Dumas.<br />
+              Roman d'aventures paru en 1844.
+            </p>
+          </Card>
+
+          <Card
+            title="Avec pied de page"
+            footer={
+              <>
+                <Button variant="ghost">Annuler</Button>
+                <Button variant="forest">Confirmer</Button>
+              </>
+            }
+          >
+            <p style={{ margin: 0, color: "var(--color-text-muted)" }}>
+              Carte avec actions dans le footer.
+            </p>
+          </Card>
+
+          <Card>
+            <p style={{ margin: 0 }}>Carte sans titre, contenu seul.</p>
+          </Card>
+        </div>
+      </section>
+
+      {/* -------- TABLE + PAGINATION -------- */}
+      <section className="ds-section" id="table">
+        <h2 className="ds-section-title">Table &amp; Pagination</h2>
+        <Table
+          columns={[
+            { key: "titre",  header: "Titre" },
+            { key: "auteur", header: "Auteur" },
+            { key: "genre",  header: "Genre" },
+            {
+              key: "stock",
+              header: "Stock",
+              render: (row) => (
+                <Badge variant={row.stock > 5 ? "success" : row.stock > 0 ? "warning" : "error"}>
+                  {row.stock > 0 ? `${row.stock} ex.` : "Rupture"}
+                </Badge>
+              ),
+            },
+          ]}
+          data={BOOKS}
+          keyExtractor={(row) => String(row.id)}
+        />
+        <Pagination
+          currentPage={currentPage}
+          totalPages={8}
+          onPageChange={setCurrentPage}
+        />
+      </section>
+
+      {/* -------- MODAL -------- */}
+      <section className="ds-section" id="modal">
+        <h2 className="ds-section-title">Modal</h2>
+        <div className="ds-row">
+          <Button variant="forest" onClick={() => setModalOpen(true)}>
+            Ouvrir la modale
+          </Button>
+        </div>
+        <Modal
+          open={modalOpen}
+          onClose={() => setModalOpen(false)}
+          title="Supprimer le livre"
+          footer={
+            <>
+              <Button variant="paper-outline" onClick={() => setModalOpen(false)}>
+                Annuler
+              </Button>
+              <Button
+                variant="error"
+                onClick={() => {
+                  setModalOpen(false);
+                  toast("Livre supprimé.", "error");
+                }}
+              >
+                Supprimer
+              </Button>
+            </>
+          }
+        >
+          Êtes-vous sûr de vouloir supprimer <strong>Les Misérables</strong> du
+          catalogue ? Cette action est irréversible.
+        </Modal>
+      </section>
+
+      {/* -------- TOAST -------- */}
+      <section className="ds-section" id="toast">
+        <h2 className="ds-section-title">Toast</h2>
+        <div className="ds-row">
+          <Button variant="sage"          onClick={() => toast("Commande enregistrée avec succès.", "success")}>
+            Succès
+          </Button>
+          <Button variant="error"         onClick={() => toast("Une erreur est survenue.", "error")}>
+            Erreur
+          </Button>
+          <Button variant="paper-outline" onClick={() => toast("Stock faible pour ce titre.", "warning")}>
+            Avertissement
+          </Button>
+          <Button variant="ghost"         onClick={() => toast("Synchronisation en cours…", "info")}>
+            Info
+          </Button>
         </div>
       </section>
 

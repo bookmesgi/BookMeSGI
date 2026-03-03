@@ -1,0 +1,55 @@
+.stat {
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--rounded-lg);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-icon {
+  color: var(--color-text-muted);
+  margin-bottom: 0.25rem;
+  display: flex;
+}
+
+.stat-label {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin: 0;
+}
+
+.stat-value {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.stat-trend {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  margin: 0;
+  margin-top: 0.125rem;
+}
+
+.stat-trend--up {
+  color: var(--color-success);
+}
+
+.stat-trend--down {
+  color: var(--color-error);
+}
+
+.stat-trend--neutral {
+  color: var(--color-text-muted);
+}
