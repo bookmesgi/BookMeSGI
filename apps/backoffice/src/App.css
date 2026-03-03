@@ -1,41 +1,137 @@
+/* ==========================================
+   Showcase — layout général
+========================================== */
+
 #root {
   width: 100%;
   min-height: 100vh;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-.content {
-  max-width: 1280px;
+.showcase {
+  max-width: 860px;
   margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Sections */
+.ds-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.ds-section-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 0.5rem;
+  margin: 0;
+}
+
+/* Rangées flex */
+.ds-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.ds-row--col {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ds-row--start {
+  align-items: flex-start;
+}
+
+/* Grille de champs (2 colonnes) */
+.ds-fields-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+/* Formulaire pleine largeur */
+.ds-form {
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--rounded-lg);
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 480px;
+}
+
+.ds-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.ds-form-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+/* Typographie du showcase */
+.ds-title {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.ds-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* Swatches couleurs */
+.ds-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.ds-swatch {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--rounded-md);
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.ds-swatch-label {
+  font-size: 0.72rem;
+  font-family: var(--font-body);
+  color: var(--color-text-muted);
   text-align: center;
+  margin-top: 0.25rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.ds-swatch-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card {

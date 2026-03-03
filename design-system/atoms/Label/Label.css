@@ -1,0 +1,54 @@
+/* Label & HelperText — Design System */
+
+/* === Label === */
+
+.label {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  display: block;
+  cursor: default;
+  line-height: 1.4;
+}
+
+/* Astérisque rouge sur "required" */
+.label-required::after {
+  content: " *";
+  color: var(--color-error);
+  font-weight: 700;
+}
+
+/* Mention grisée sur "optional" */
+.label-optional::after {
+  content: " (facultatif)";
+  color: var(--color-text-muted);
+  font-weight: 400;
+  font-size: 0.8em;
+}
+
+.label-error {
+  color: var(--color-error);
+}
+
+.label-warning {
+  color: var(--color-warning);
+}
+
+/* === Helper Text === */
+
+.helper-text {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  display: block;
+  line-height: 1.4;
+}
+
+.helper-error {
+  color: var(--color-error);
+}
+
+.helper-warning {
+  color: var(--color-warning);
+}
