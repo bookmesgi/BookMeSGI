@@ -4,3 +4,4 @@ designsystem/dist/index.js
 designsystem/dist/index.js.map
 designsystem/dist/index.mjs
 designsystem/dist/index.mjs.map
+node_modules/*

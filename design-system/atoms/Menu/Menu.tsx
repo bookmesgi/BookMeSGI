@@ -14,7 +14,6 @@ interface MenuProps {
 export default function Menu({
   items = [
     { label: "ACCUEIL", href: "#" },
-    { label: "COLLECTIONS", href: "#" },
     { label: "CONTACT", href: "#" },
   ],
   brandName = "LIBRAIRIE",
