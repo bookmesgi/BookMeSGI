@@ -90,7 +90,7 @@ export default function HomePage() {
       </section>
 
       <section className="ds-section" id="cards">
-        <h2 className="ds-section-title">Cards</h2>
+        <h2 className="ds-section-title">Livres</h2>
         <div className="ds-fields-grid">
           <Card title="Hunger Games: L'embrasement">
             <p style={{ margin: 0 }}>
