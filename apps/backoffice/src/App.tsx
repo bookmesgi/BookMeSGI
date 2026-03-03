@@ -1,5 +1,5 @@
 import {
-  hello,
+  text_contact,
   Menu,
   Button,
   BadgeIcon,
@@ -14,8 +14,9 @@ export default function App() {
     <div>
       <Menu />
       <div className="content">
-        <h1>Backoffice</h1>
-        <p>{hello()}</p>
+        <h1>Accueil</h1>
+        <p>{text_contact()}</p>
+        <Button variant="paper">Contactez-nous !</Button>
 
         <section>
           <h2>Boutons</h2>
@@ -28,7 +29,7 @@ export default function App() {
             }}>
             <Button variant="forest">BUTTON</Button>
             <Button variant="forest-outline">BUTTON</Button>
-            <Button variant="paper">BUTTON</Button>
+            
             <Button variant="paper-outline">BUTTON</Button>
           </div>
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
