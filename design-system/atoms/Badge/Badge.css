@@ -39,6 +39,17 @@
   outline-offset: 2px;
 }
 
+.badge--selected {
+  box-shadow: 0 0 0 2.5px currentColor;
+  filter: brightness(0.88);
+}
+
+.badge--selected:hover {
+  filter: brightness(0.8);
+  transform: translateY(0);
+  box-shadow: 0 0 0 2.5px currentColor;
+}
+
 .badge-default {
   background-color: var(--color-surface);
   color: var(--color-text);

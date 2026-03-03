@@ -8,8 +8,16 @@ import {
 } from "@design-system";
 import { useState } from "react";
 
+type StatusBadge = "success" | "warning" | "sage" | "binding";
+
 export default function HomePage() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedStatus, setSelectedStatus] = useState<StatusBadge | null>(
+    null,
+  );
+
+  const toggleStatus = (status: StatusBadge) =>
+    setSelectedStatus((prev) => (prev === status ? null : status));
 
   return (
     <main className="showcase">
@@ -50,10 +58,30 @@ export default function HomePage() {
       <section className="ds-section" id="badges">
         <h2 className="ds-section-title">Statut</h2>
         <div className="ds-row">
-          <Badge variant="success">En stock</Badge>
-          <Badge variant="warning">Bientôt épuisé</Badge>
-          <Badge variant="sage">Nouveauté</Badge>
-          <Badge variant="binding">Coup de cœur</Badge>
+          <Badge
+            variant="success"
+            onClick={() => toggleStatus("success")}
+            selected={selectedStatus === "success"}>
+            En stock
+          </Badge>
+          <Badge
+            variant="warning"
+            onClick={() => toggleStatus("warning")}
+            selected={selectedStatus === "warning"}>
+            Bientôt épuisé
+          </Badge>
+          <Badge
+            variant="sage"
+            onClick={() => toggleStatus("sage")}
+            selected={selectedStatus === "sage"}>
+            Nouveauté
+          </Badge>
+          <Badge
+            variant="binding"
+            onClick={() => toggleStatus("binding")}
+            selected={selectedStatus === "binding"}>
+            Coup de cœur
+          </Badge>
         </div>
       </section>
 

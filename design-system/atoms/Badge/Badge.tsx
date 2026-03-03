@@ -17,6 +17,7 @@ interface BadgeProps {
   className?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   href?: string;
+  selected?: boolean;
 }
 
 export function Badge({
@@ -25,10 +26,12 @@ export function Badge({
   className = "",
   onClick,
   href,
+  selected = false,
 }: BadgeProps) {
   const base = `badge badge-${variant}`;
   const interactive = onClick || href ? " badge--interactive" : "";
-  const cls = `${base}${interactive} ${className}`.trim();
+  const selectedCls = selected ? " badge--selected" : "";
+  const cls = `${base}${interactive}${selectedCls} ${className}`.trim();
 
   if (href) {
     return (
