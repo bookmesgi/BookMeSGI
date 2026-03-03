@@ -6,6 +6,8 @@
   background: linear-gradient(180deg, #7a5a45 0%, #6b4f3f 40%, #5a3f31 100%);
   border: 3px solid #5a3f31;
   border-radius: var(--rounded-lg);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   box-shadow:
     var(--shadow-lg),
     inset 0 1px 0 rgba(255, 255, 255, 0.15),
@@ -21,20 +23,16 @@
   position: absolute;
   inset: 0;
   background-image:
-    repeating-linear-gradient(
-      90deg,
+    repeating-linear-gradient(90deg,
       transparent,
       transparent 3px,
       rgba(0, 0, 0, 0.018) 3px,
-      rgba(0, 0, 0, 0.018) 6px
-    ),
-    repeating-linear-gradient(
-      0deg,
+      rgba(0, 0, 0, 0.018) 6px),
+    repeating-linear-gradient(0deg,
       transparent,
       transparent 8px,
       rgba(0, 0, 0, 0.012) 8px,
-      rgba(0, 0, 0, 0.012) 16px
-    );
+      rgba(0, 0, 0, 0.012) 16px);
   border-radius: calc(var(--rounded-lg) - 3px);
   pointer-events: none;
 }
