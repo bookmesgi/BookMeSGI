@@ -22,7 +22,14 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    /* Path aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@design-system": ["../../design-system/index.ts"],
+      "@design-system/*": ["../../design-system/*"]
+    }
   },
-  "include": ["src"]
+  "include": ["src", "../../design-system"]
 }

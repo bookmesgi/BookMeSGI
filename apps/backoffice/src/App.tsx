@@ -6,8 +6,7 @@ import {
   Checkbox,
   Input,
   Select,
-} from "@bookmesgi/designsystem";
-import "@bookmesgi/designsystem/dist/index.css";
+} from "@design-system";
 import "./App.css";
 
 export default function App() {

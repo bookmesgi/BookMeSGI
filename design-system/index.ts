@@ -1,9 +1,6 @@
 // CSS
 import "./global.css";
 import "./helper.css";
-import "./atoms/Menu/Menu.css";
-import "./atoms/Button/Button.css";
-import "./atoms/Form/Form.css";
 
 // Components
 export { default as Menu } from "./atoms/Menu/Menu";

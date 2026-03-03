@@ -98,19 +98,3 @@
   border-color: var(--color-binding);
   border-style: solid;
 }
-
-.border-sage {
-  border-width: var(--border-medium);
-  border-color: var(--color-sage);
-  border-style: solid;
-}
-
-.border-highlight {
-  border-width: var(--border-large);
-  border-color: var(--color-binding);
-  border-style: solid;
-}
-
-.rouded {
-  border-radius: var(--rounded);
-}

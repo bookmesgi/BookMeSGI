@@ -165,6 +165,3 @@ export function FormGroup({
     </div>
   );
 }
-
-// Export par défaut pour compatibilité
-export default { Checkbox, Input, Select, FormGroup };
